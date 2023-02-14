@@ -7,7 +7,7 @@
  <!-- Optional theme -->  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">  
 
- <!-- JavaScript -->  
+ <!--JavaScript -->  
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
  <link href="{% static 'login/style.css' %}" rel="stylesheet"/>  
  <link href="{% static 'https://fonts.googleapis.com/css?family=Ubuntu' %}" rel="stylesheet"/>  
@@ -20,7 +20,7 @@
  <body>  
  <div class="main">  
  <p align="center" class="sign">  
- Vous avez {{count}} Rendez-vous
+ Vous avez {{count}} Rendez-vous  
  </p>  
  <center>  
  <div class="card" style="width: 18rem;">  
@@ -30,12 +30,12 @@
  <p class="card-text">Date: {{appointment.date}}</p>  
  <p class="card-text">Time:{{appointment.time}}</p>  
  </div>  
- {% if appointment.status == "True" %}  
- <a class="btn btn-primary">Completed</a>  
- {% else %}  
- <a href="?complete=''&page={{page_num}}" class="btn btn-danger">Click to complete</a>  
- {% endif %}  
 </div>  
+{% if appointment.status == "True" %}  
+<a class="btn btn-primary">Completed</a>  
+{% else %}  
+<a class="btn btn-danger">Not Completed</a>  
+{% endif %}  
  <nav aria-label="...">  
  <ul class="pagination">  
  <li class="page-item disabled">  
@@ -48,7 +48,6 @@
 </nav>  
 <a href="dashboard"> <button class="btn btn-danger btn-rounded" type="button">Back</button></a>  
 <a href="?delete=''&page={{page_num}}"> <button class="btn btn-danger btn-rounded" type="button">Delete</button></a>  
-</center>  
 </center>  
  </div>  
  </body>  
