@@ -1,0 +1,69 @@
+.main {
+    background-color: #D4E4D3;
+    margin: auto;
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .sign {
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+  }
+  
+  .form1 {
+    margin: 0 auto;
+    max-width: 320px;
+    text-align: center;
+  }
+  
+  .un {
+    border: none;
+    display: block;
+    font-size: 14px;
+    height: 50px;
+    margin: 0 auto 15px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .pass {
+    border: none;
+    display: block;
+    font-size: 14px;
+    height: 50px;
+    margin: 0 auto 15px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .submit {
+    background-color: #fff;
+    border: none;
+    color: #6B8E23;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    margin: 0 auto 15px;
+    width: 100%;
+  }
+  
+  .submit:hover {
+    background-color: #6B8E23;
+    color: #fff;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #6B8E23;
+  }

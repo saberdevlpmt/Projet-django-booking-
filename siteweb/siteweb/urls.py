@@ -16,18 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings  
 from django.conf.urls.static import static  
-from django.urls import path, include  
-from . import views 
+from django.urls import path, include 
+from rendez_vous.views import create_appointment, accueil, user_login,register, user_logout
+
 
 app_name = "siteweb"  
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rendez_vous', views.rendez_vous),
-    path("", views.login, name="login"),  
-    path("login", views.login, name="login"),  
-    path("dashboard", views.dashboard, name="dashboard"),  
-    path("create-appointment", views.create_appointment, name="create-appointment"),  
-    path("today-appointment", views.today_appointment, name="today-appointment"),  
-    path("all-appointment", views.all_appointment, name="all-appointment"),  
-    path("register", views.register, name="register"), 
+    path("",accueil,name="accueil"),    
+    path("login", user_login, name="login"),
+    path("logout", user_logout, name="logout"),      
+    path('create-appointment/', create_appointment, name='create-appointment'), 
+    # path("dashboard",dashboard, name="dashboard"),   
+    # path("today-appointment", today_appointment, name="today-appointment"),  
+    # path("all-appointment", all_appointment, name="all-appointment"),  
+    path("register/", register, name="register"),
+    
 ]

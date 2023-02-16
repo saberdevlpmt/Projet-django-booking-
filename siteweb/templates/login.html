@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'login/style.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="{% static 'path/to/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" />
+    <title>Calendrier des Rendez-vous</title>
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <p align="center" class="sign">Bonjour 👋</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Connection</button>
+        </form>
+        <p align="center" class="forgot"><a href="register">Pas de compte ? Inscription</a></p>
+    </div>
+{% endblock %}
