@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('/static/image/background.png') no-repeat center center fixed;
+    background: url('static/image/pexels-pixabay-54319.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 

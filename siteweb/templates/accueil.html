@@ -1,53 +1,4 @@
 {% extends 'base.html' %}
-{% comment %}<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Révélez votre potentiel intérieur </title>
-	{% comment %} <link rel="stylesheet" type="text/css" href="{% static "accueil/style.css" %}"> {% endcomment %}
-{% comment %} </head>
-<body>
-	<header>
-		<div class="logo">
-			<img src="logo.png">
-		</div>
-		{%if user.is_authenticated%}
-			<p>Vous êtes correctement connecté</p>
-		{%endif%}
-		<nav>
-			<ul>
-				<li><a href="{% url 'create-appointment' %}">Rendez-vous</a></li>
-				<li><a href="{% url 'register' %}">Inscription</a></li>
-				<li><a href="{% url 'login' %}">Connexion</a></li>
-				<li><a href="{% url 'logout' %}">Déconnexion</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<h1>Révélez votre potentiel intérieur </h1>
-		<div class="services">
-			<div>
-				<h2>Sophrologie</h2>
-				<p>"La sophrologie est une pratique qui permet de mieux gérer le stress et les émotions, en se concentrant sur les sensations corporelles et la respiration. Elle aide à retrouver un équilibre entre le corps et l'esprit, pour une meilleure santé globale."</p>
-			</div>
-			<div>
-				<h2>Développer son leadership</h2>
-				<p>"vous allez developper votre croissance personnelle pour acquérir les compétences de leadership et de gestion de soi."</p>
-			</div>
-			<div>
-				<h2>Reiki</h2>
-				<p>"le reiki est une technique de guérison énergétique qui aide à rééquilibrer les énergies du corps, pour une meilleure santé physique et mentale."</p>
-			</div>
-		</div>
-	</main>
-	<footer>
-		<p>Copyright © 2023</p>
-	</footer>
-</body>
-</html> {% endcomment %} 
-
-
-
 {% load static %}
 
 {% block title %}Accueil{% endblock %}
@@ -56,19 +7,19 @@
 {% endblock %}
 {% block content %}
 	<div class="background">
-		<img src="{% static 'image/background.png' %}" alt="Background">
+		<img src="{% static 'image/pexels-alena-koval-886521.jpg' %}" alt="Background">
 	</div>
-	<h1>Révélez votre potentiel intérieur</h1>
-	<div class="services">
-		<div>
+	<h1 class="title">Révélez votre potentiel intérieur</h1>
+	<div class="services-container">
+		<div class="service">
 			<h2>Sophrologie</h2>
 			<p>"La sophrologie est une pratique qui permet de mieux gérer le stress et les émotions, en se concentrant sur les sensations corporelles et la respiration. Elle aide à retrouver un équilibre entre le corps et l'esprit, pour une meilleure santé globale."</p>
 		</div>
-		<div>
+		<div class="service">
 			<h2>Développer son leadership</h2>
 			<p>"Vous allez développer votre croissance personnelle pour acquérir les compétences de leadership et de gestion de soi."</p>
 		</div>
-		<div>
+		<div class="service">
 			<h2>Reiki</h2>
 			<p>"Le Reiki est une technique de guérison énergétique japonaise qui utilise l'imposition des mains pour favoriser la détente, soulager la douleur et promouvoir la guérison."</p>
 		</div>

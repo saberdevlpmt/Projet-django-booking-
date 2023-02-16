@@ -1,6 +1,6 @@
 /* Police de caractères */
 body {
-    outline: 1px solid rgb(233, 220, 222)
+    outline: 1px solid rgb(233, 220, 222);
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 16px;
 }
@@ -46,7 +46,7 @@ nav li {
 }
 
 nav a {
-    color: #edd9dc
+    color: #0d0d0d;
     text-decoration: none;
 }
 
