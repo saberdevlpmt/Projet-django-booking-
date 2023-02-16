@@ -92,7 +92,7 @@ def create_appointment(request):
     context = {'form': form}
     return render(request, 'create_appointment.html', context) 
     
-# rendez-vous à venir
+# rendez-vous à venir fonctionnalité future
  
 def today_appointment(request):
     if "user" in request.session:
@@ -107,7 +107,7 @@ def today_appointment(request):
         return HttpResponseNotFound("Page non accessible")  
     
     
-#Terminer  des rendez-vous  
+#Terminer  des rendez-vous  fonctionnalité future
 
 def today_appointment(request):    
     if "user" in request.session:
@@ -128,7 +128,7 @@ def today_appointment(request):
         return HttpResponseNotFound("Page non accessible")
     
     
-#Afficher tous les rendez-vous
+#Afficher tous les rendez-vous fonctionnalité future
 
 def all_appointment(request):
     if "user" in request.session:
