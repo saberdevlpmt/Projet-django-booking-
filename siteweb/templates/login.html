@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'login/style.css' %}" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Calendrier des Rendez-vous</title>
+{% endblock head %}
+
+{% block body %}
+    <div class="main">
+        <p align="center" class="sign">Bonjour 👋</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Connection</button>
+        </form>
+        <p align="center" class="forgot"><a href="register">Pas de compte ? Inscription</a></p>
+    </div>
+{% endblock body %}

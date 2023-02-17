@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+    {% block head%}
+	    <title>Accueil</title>
+		<link rel="stylesheet" type="text/css" href="{% static "accueil/style.css" %}">
+	{% endblock head%}
+{% block body %}
+<div class="image">
+	<h1 class="title">Révélez votre potentiel intérieur</h1>
+	<div class="services-container">
+		<div class="service">
+			<h2>Sophrologie</h2>
+			<p>"La sophrologie est une pratique qui permet de mieux gérer le stress et les émotions, en se concentrant sur les sensations corporelles et la respiration. Elle aide à retrouver un équilibre entre le corps et l'esprit, pour une meilleure santé globale."</p>
+		</div>
+		<div class="service">
+			<h2>Développer son leadership</h2>
+			<p>"Vous allez développer votre croissance personnelle pour acquérir les compétences de leadership et de gestion de soi."</p>
+		</div>
+		<div class="service">
+			<h2>Reiki</h2>
+			<p>"Le Reiki est une technique de guérison énergétique japonaise qui utilise l'imposition des mains pour favoriser la détente, soulager la douleur et promouvoir la guérison."</p>
+		</div>
+	</div>
+</div>
+{% endblock body%}
