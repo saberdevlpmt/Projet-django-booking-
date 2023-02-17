@@ -4,9 +4,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>{% block title %} {% endblock %}</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'base/base.css' %}"> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+	{% block head %} {% endblock head %}
 </head>
 <body>
 	<header>
@@ -30,7 +30,7 @@
 		</nav>
 	</header>
 	<main>
-		{% block content %}{% endblock %}
+		{% block body %}{% endblock body %}
 	</main>
 	<footer>
 		<p>Copyright © 2023</p>

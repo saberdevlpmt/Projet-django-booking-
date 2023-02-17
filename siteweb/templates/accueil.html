@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Accueil{% endblock %}
-{% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static "accueil/style.css" %}">
-{% endblock %}
-{% block content %}
-	<div class="background">
-		<img src="{% static 'image/pexels-alena-koval-886521.jpg' %}" alt="Background">
-	</div>
+
+    {% block head%}
+	    <title>Accueil</title>
+		<link rel="stylesheet" type="text/css" href="{% static "accueil/style.css" %}">
+	{% endblock head%}
+{% block body %}
+<div class="image">
 	<h1 class="title">Révélez votre potentiel intérieur</h1>
 	<div class="services-container">
 		<div class="service">
@@ -24,4 +23,5 @@
 			<p>"Le Reiki est une technique de guérison énergétique japonaise qui utilise l'imposition des mains pour favoriser la détente, soulager la douleur et promouvoir la guérison."</p>
 		</div>
 	</div>
-{% endblock %}
+</div>
+{% endblock body%}
