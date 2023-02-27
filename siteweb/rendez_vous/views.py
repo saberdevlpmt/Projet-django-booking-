@@ -1,6 +1,7 @@
 import datetime
 from django.contrib import messages
 from django.http import HttpResponseNotFound
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.utils import timezone
@@ -89,8 +90,8 @@ def create_appointment(request):
         event.save()
         return redirect('accueil')
 
-    context = {'form': form}
-    return render(request, 'create_appointment.html', context) 
+    context = {'form': EventForm()}
+    return render(request, 'appoint/create-appointment.html', context) 
     
 # rendez-vous à venir fonctionnalité future
  
@@ -130,16 +131,38 @@ def today_appointment(request):
     
 #Afficher tous les rendez-vous fonctionnalité future
 
+# def all_appointment(request):
+#     if "user" in request.session:
+#         appointments = Event.objects.filter(user=request.session["user"]["username"])
+#         appointments_count = appointments.count()
+#         page_number = int(request.GET.get('page', 1))
+#         appointment = appointments[page_number - 1]
+#         if request.GET.get("delete"):
+#             appointment.delete()
+#             return redirect("siteweb:all-appointment")
+#         context={"count":appointments_count,"appointment":appointment, "next_page": min(appointments_count, page_number + 1), "prev_page": max(1, page_number - 1)}
+#         return render(request,"all-appointment.html",context)
+#     else:
+#         return HttpResponseNotFound("Page non accessible")  
+
+
+
 def all_appointment(request):
-    if "user" in request.session:
-        appointments = Event.objects.filter(user=request.session["user"]["username"])
-        appointments_count = appointments.count()
-        page_number = int(request.GET.get('page', 1))
-        appointment = appointments[page_number - 1]
-        if request.GET.get("delete"):
-            appointment.delete()
-            return redirect("siteweb:all-appointment")
-        context={"count":appointments_count,"appointment":appointment, "next_page": min(appointments_count, page_number + 1), "prev_page": max(1, page_number - 1)}
-        return render(request,"all-appointment.html",context)
+    if request.user.is_superuser :
+        appointment = Event.objects.all()
+        context = {'appointments': appointment}
+        return render(request, 'all-appointments.html', context)
     else:
-        return HttpResponseNotFound("Page non accessible")  
+        return HttpResponseNotFound("Page non accessible")
+    # if request.user.is_superuser or request.user.groups.filter(name='Coach').exists():
+    #     appointments = Event.objects.all()
+    #     appointments_count = appointments.count()
+    #     page_number = int(request.GET.get('page', 1))
+    #     appointment = appointments[page_number - 1]
+    #     if request.GET.get("delete"):
+    #         appointment.delete()
+    #         return redirect("siteweb:all-appointment")
+    #     context={"count":appointments_count,"appointment":appointment, "next_page": min(appointments_count, page_number + 1), "prev_page": max(1, page_number - 1)}
+    #     return render(request,"all-appointments.html", context)
+    # else:
+    #     return HttpResponseNotFound("Page non accessible")

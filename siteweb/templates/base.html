@@ -19,13 +19,18 @@
 		<nav>
 			<ul>
 				<li><a href="{% url 'accueil' %}">Accueil</a></li>
-				<li><a href="{% url 'create-appointment' %}">Rendez-vous</a></li>
+				{% if user.is_superuser %}
+					<li><a href="{% url 'all_appointment' %}">Mes Rendez-Vous</a></li>
+				{% else %}
+				{% endif %}
 				{% if user.is_authenticated %}
+					<li><a href="{% url 'create-appointment' %}">Rendez-vous</a></li>
 					<li><a href="{% url 'logout' %}">Déconnexion</a></li>
 				{% else %}
 					<li><a href="{% url 'register' %}">Inscription</a></li>
 					<li><a href="{% url 'login' %}">Connexion</a></li>
 				{% endif %}
+
 			</ul>
 		</nav>
 	</header>

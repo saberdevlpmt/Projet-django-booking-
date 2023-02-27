@@ -1,44 +1,42 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% comment %} 
+ fonctionnalité future :
+Cette page affiche les détails d'un rendez-vous individuel, y compris le nom, la description, la date et l'heure du rendez-vous. Le nombre total de rendez-vous est également affiché. {% endcomment %} 
 
-{% block content %}
-  <div class="main">
-    <p align="center" class="sign">
-      Vous avez {{ count }} rendez-vous
-    </p>
-    <center>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{ appointment.name }}</h5>
-          <p class="card-text">{{ appointment.description }}</p>
-          <p class="card-text">Date: {{ appointment.date }}</p>
-          <p class="card-text">Time: {{ appointment.time }}</p>
+{% block body %}
+    <h1>Tous les rendez-vous</h1>
+    {% if count == 0 %}
+        <p>Aucun rendez-vous trouvé.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date et heure</th>
+                    <th>Téléphone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                      <td>{{ appointment.user.nom }}</td>
+                      <td>{{ appointment.date }}</td>
+                      <td>{{ appointment.user.numero_de_telephone}}</td>
+                      <td>{{ appointment.commentaires }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% if prev_page %}
+                <a href="?page={{ prev_page }}">Précédent</a>
+            {% endif %}
+            {% if next_page %}
+                <a href="?page={{ next_page }}">Suivant</a>
+            {% endif %}
         </div>
-      </div>
-      {% if appointment.status == "True" %}
-        <a class="btn btn-primary">Completed</a>
-      {% else %}
-        <a class="btn btn-danger">Not Completed</a>
-      {% endif %}
-      <nav aria-label="...">
-        <ul class="pagination">
-          <li class="page-item {% if not prev_page %}disabled{% endif %}">
-            <a class="page-link" href="?page={{ prev_page|default:1 }}" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item {% if not next_page %}disabled{% endif %}">
-            <a class="page-link" href="?page={{ next_page|default:1 }}">Next</a>
-          </li>
-        </ul>
-      </nav>
-      <form action="?delete=&page={{ page_num }}" method="post">
-        {% csrf_token %}
-        <button class="btn btn-danger btn-rounded" type="submit">Delete</button>
-      </form>
-      <a href="{% url 'dashboard' %}"><button class="btn btn-danger btn-rounded" type="button">Back</button></a>
-    </center>
-  </div>
-  <link href="{% static 'login/style.css' %}" rel="stylesheet"/>  
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>  
-  <link href="{% static 'path/to/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"/> 
+    {% endif %}
 {% endblock %}

@@ -1,0 +1,35 @@
+/* Styles pour la table des rendez-vous */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Styles pour les liens de pagination */
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  /* Styles pour le lien actif de pagination */
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  /* Styles pour le lien désactivé de pagination */
+  .pagination a.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }

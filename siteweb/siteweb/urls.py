@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf import settings  
 from django.conf.urls.static import static  
 from django.urls import path, include 
-from rendez_vous.views import create_appointment, accueil, user_login,register, user_logout
+from rendez_vous.views import create_appointment, accueil, user_login,register, user_logout, all_appointment
 
 
 app_name = "siteweb"  
@@ -27,9 +27,9 @@ urlpatterns = [
     path("login", user_login, name="login"),
     path("logout", user_logout, name="logout"),      
     path('create-appointment/', create_appointment, name='create-appointment'), 
-    # path("dashboard",dashboard, name="dashboard"),   
+    # path("dashboard",dashboard, name="dashboard"),chemin des urls pour les fonctionnalités futures
     # path("today-appointment", today_appointment, name="today-appointment"),  
-    # path("all-appointment", all_appointment, name="all-appointment"),  
+    path("all_appointment/", all_appointment, name="all_appointment"),  
     path("register/", register, name="register"),
     
 ]

@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+{% block body %}
     <h1>Prendre Rendez-vous</h1>
-    <link rel="stylesheet" type="text/css" href="{% static 'create_appointment/appointmentt.css' %}">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Envoyer</button>
     </form>
 {% endblock %}
+
+<!-- 
+
+Ce code est un template HTML qui permet d'afficher un formulaire de prise de rendez-vous.
+
+Il étend le template 'base.html' pour inclure le contenu dans le bloc 'content'. Il charge également les fichiers statiques à l'aide du filtre 'static'.
+
+Le formulaire est défini à l'aide d'une balise <form> et soumis avec la méthode POST lors de la soumission du formulaire. Le formulaire contient un jeton de sécurité CSRF généré par Django pour empêcher les attaques de type Cross-site Request Forgery.
+
+Le formulaire est construit à partir d'un objet 'form'  qui est affiché en utilisant le filtre 'as_p'. Le bouton 'Envoyer' permet de soumettre le formulaire.
+
+Ce code utilise également un fichier de style externe 'appointmentt.css' pour styliser l'apparence du formulaire.
+-->
